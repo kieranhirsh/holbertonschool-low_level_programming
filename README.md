@@ -1,1 +1,1 @@
-this is my repo for the "C - Hello, World" project
+this is my repo for the C projects
