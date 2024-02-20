@@ -9,7 +9,9 @@ void times_table(void)
 
 	for (num2 = 0 ; num2 <= 9 ; num2++)
 	{
-		for (num3 = 0 ; num3 <= 9 ; num3++)
+		_putchar('0');
+		_putchar(',');
+		for (num3 = 1 ; num3 <= 9 ; num3++)
 		{
 			_putchar(' ');
 			num6 = num2 * num3;
