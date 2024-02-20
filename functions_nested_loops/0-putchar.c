@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <main.h>
+#include "main.h"
 
 /**
  * main - entry point
@@ -9,7 +9,7 @@
  */
 int main(void)
 {
-	_putchar('_putchar');
+	_putchar(__func__);
 	_putchar('\n');
 
 	return (0);
