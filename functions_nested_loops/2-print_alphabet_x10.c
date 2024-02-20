@@ -4,7 +4,7 @@
  * print_alphabet - entry point
  * this program prints the alphabet 10 times
  */
-void print_alphabet(void)
+void print_alphabet_x10(void)
 {
 	int ii;
 	char ch;
@@ -13,7 +13,7 @@ void print_alphabet(void)
 	{
 		for (ch = 97 ; ch <= 122 ; ch++)
 			_putchar(ch);
+		_putchar('\n');
 	}
-	_putchar('\n');
 }
 
