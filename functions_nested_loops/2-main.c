@@ -2,18 +2,14 @@
 
 /**
  * main - entry point
- * prints the alphabet
+ * prints the alphabet 10 times
  *
- * Return: Always 0.
+ * Return: Always 0 (success)
  */
 int main(void)
 {
-	int ii;
-
-	for (ii=1 ; ii<=10 ; ii++)
-	{
-		print_alphabet();
-	}
-
-	return (0);
+    print_alphabet_x10();
+    return (0);
 }
+#include "main.h"
+
