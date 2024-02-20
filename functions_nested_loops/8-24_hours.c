@@ -12,8 +12,10 @@ void jack_bauer(void)
 
 	for (hh = '0' ; hh <= '2' ; hh++)
 	{
-		for (h = '0' ; h <= '4' ; h++)
+		for (h = '0' ; h <= '9' ; h++)
 		{
+			if ( h == '5' && hh >= '2' )
+				break;
 			for (mm = '0' ; mm <= '5' ; mm++)
 			{
 				for (m = '0' ; m <= '9' ; m++)
@@ -23,7 +25,6 @@ void jack_bauer(void)
 					_putchar(':');
 					_putchar(mm);
 					_putchar(m);
-					_putchar(' ');
 					_putchar('\n');
 				}
 			}
