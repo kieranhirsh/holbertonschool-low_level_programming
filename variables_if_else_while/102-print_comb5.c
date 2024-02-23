@@ -10,17 +10,20 @@ int main(void)
 {
 	int a, b;
 
-	for (a = 0 ; a <= 8 ; a++)
+	for (a = 0 ; a <= 98 ; a++)
 	{
-		for (b = a + 1 ; b <= 9 ; b++)
+		for (b = a + 1 ; b <= 99 ; b++)
 		{
 			if (b != 1)
 			{
 				putchar(',');
 				putchar(' ');
 			}
-			putchar(a + '0');
-			putchar(b + '0');
+			putchar((a / 10) + '0');
+			putchar((a % 10) + '0');
+			putchar(' ');
+			putchar((b / 10) + '0');
+			putchar((b % 10) + '0');
 		}
 	}
 
