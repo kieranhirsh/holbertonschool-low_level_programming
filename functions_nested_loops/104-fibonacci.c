@@ -20,7 +20,7 @@ int main(void)
 	printf("%ld", old);
 	printf(", %ld", new);
 
-	for (ii = 3 ; ii <= 100 ; ii++)
+	for (ii = 3 ; ii <= 99 ; ii++)
 	{
 		printf(", ");
 		newnew = old + new;
