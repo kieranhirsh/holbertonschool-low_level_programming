@@ -8,7 +8,6 @@
  */
 int main(void)
 {
-	int ii;
 	long int old, new, newnew, total;
 
 	old = 1;
