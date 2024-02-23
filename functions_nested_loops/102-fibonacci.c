@@ -8,18 +8,19 @@
  */
 int main(void)
 {
-	long int ii, old, new, newnew;
+	int ii;
+	long int old, new, newnew;
 
 	old = 1;
 	new = 1;
 
-	printf("%d, ", old);
-	printf("%d, ", new);
+	printf("%ld", old);
+	printf(", %ld", new);
 
 	for (ii = 3 ; ii <= 50 ; ii++)
 	{
 		newnew = old + new;
-		printf("%d, ", newnew);
+		printf(", %ld", newnew);
 		old = new;
 		new = newnew;
 	}
