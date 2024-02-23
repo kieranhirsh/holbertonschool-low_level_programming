@@ -15,7 +15,7 @@ int main(void)
 		if (((ii % 3) == 0) || ((ii % 5) == 0))
 			total = total + ii;
 	}
-	printf("%d\n",total);
+	printf("%d\n", total);
 
 	return (0);
 }
