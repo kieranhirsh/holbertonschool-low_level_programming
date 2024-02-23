@@ -12,7 +12,7 @@ int main(void)
 	long int old, new, newnew;
 
 	old = 1;
-	new = 1;
+	new = 2;
 
 	printf("%ld", old);
 	printf(", %ld", new);
