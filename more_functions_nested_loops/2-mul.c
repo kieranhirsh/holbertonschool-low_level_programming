@@ -1,5 +1,5 @@
 /**
- * _mul - multiplies two given numbers
+ * mul - multiplies two given numbers
  * @a: the first given number
  * @b: the second given number
  *
@@ -9,7 +9,7 @@
 int mul(int a, int b)
 {
 	int c;
-	
+
 	c = a * b;
 
 	return (c);
