@@ -15,15 +15,18 @@ int main(void)
 	{
 		word[0] = '\0';
 		if ((ii % 3) == 0)
-			strcat(word,"Fizz");
+			strcat(word, "Fizz");
 		if ((ii % 5) == 0)
-			strcat(word,"Buzz");
+			strcat(word, "Buzz");
 		if (word[0] == '\0')
-			printf("%d ",ii);
+			printf("%d", ii);
 		else
-			printf("%s ",word);
+			printf("%s", word);
+		if (ii == 100)
+			printf("\n");
+		else
+			printf(" ");
 	}
-	printf("\n");
 
 	return (0);
 }
