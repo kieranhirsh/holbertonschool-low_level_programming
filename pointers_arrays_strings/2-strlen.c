@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 /**
  * _strlen - calculates the length of a given string
  * @s: the address of the given string
