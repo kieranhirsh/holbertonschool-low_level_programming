@@ -1,5 +1,5 @@
 #include <unistd.h>
-#include <string.h>
+#include "main.h"
 
 /**
  * _puts - prints a string, followed by a new line
@@ -7,7 +7,7 @@
  */
 void _puts(char *str)
 {
-	write(1, str, strlen(str));
+	write(1, str, _strlen(str));
 	write(1, "\n", 1);
 }
 
