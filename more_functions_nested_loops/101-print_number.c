@@ -14,7 +14,7 @@ void print_number(int n)
 		if (n == INT_MIN)
 		{
 			_putchar(((INT_MAX / 1000000000) % 10) + '0');
-			n = INT_MAX - ((INT_MAX / 1000000000) % 10);
+			n = INT_MAX - (INT_MAX - (INT_MAX % 1000000000));
 			n = n + 1;
 		}
 		else
