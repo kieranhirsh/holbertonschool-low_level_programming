@@ -12,7 +12,7 @@ void print_number(int n)
 		_putchar('-');
 		n = n - 1;
 		n = n * (-1);
-		n = n + 1;
+		n = n - 1;
 	}
 	if (n >= 1000000000)
 		_putchar(((n / 1000000000) % 10) + '0');
