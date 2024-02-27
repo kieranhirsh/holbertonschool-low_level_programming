@@ -10,7 +10,7 @@ void print_rev(char *s)
 	int i;
 
 	for (i = _strlen(s) ; i >= 0 ; i--)
-		write(1, s[i], 1);
+		write(1, &s[i], 1);
 	write(1, "\n", 1);
 }
 
