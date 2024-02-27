@@ -29,16 +29,16 @@ int _atoi(char *s)
 		else
 			ii += 1;
 	}
+	for (ii = numstart - 1 ; ii >= 0 ; ii--)
+	{
+		if (s[ii] == 45)
+			mult = mult * (-1);
+	}
 	for (ii = numend ; ii >= numstart ; ii--)
 	{
 		num += (s[ii] - 48) * mult;
 		if (ii != numstart)
 			mult *= 10;
-	}
-	for (ii = numstart - 1 ; ii >= 0 ; ii--)
-	{
-		if (s[ii] == 45)
-			num = num * (-1);
 	}
 
 	return (num);
