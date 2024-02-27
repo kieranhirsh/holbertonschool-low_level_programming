@@ -32,7 +32,8 @@ int _atoi(char *s)
 	for (ii = numend ; ii >= numstart ; ii--)
 	{
 		num += (s[ii] - 48) * mult;
-		mult *= 10;
+		if (ii != numstart)
+			mult *= 10;
 	}
 	for (ii = numstart - 1 ; ii >= 0 ; ii--)
 	{
