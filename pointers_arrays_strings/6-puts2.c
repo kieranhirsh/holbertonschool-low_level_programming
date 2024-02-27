@@ -1,8 +1,6 @@
 #include <unistd.h>
 #include "main.h"
 
-#include <stdio.h>
-
 /**
  * puts2 - prints the even characters of a string
  * @str: the given string
@@ -15,7 +13,6 @@ void puts2(char *str)
 	for (ii = 0 ; ii <= len ; ii += 2)
 	{
 		write(1, &str[ii], 1);
-		printf("%d",ii);
 	}
 	write(1, "\n", 1);
 }
