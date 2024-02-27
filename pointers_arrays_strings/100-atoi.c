@@ -5,6 +5,7 @@
  * @s: the string to be converted
  *
  * Return: @num: the int
+ *         0 if there is no number in the string
  */
 int _atoi(char *s)
 {
@@ -16,6 +17,8 @@ int _atoi(char *s)
 	{
 		if (s[ii] >= 48 && s[ii] <= 57)
 			numstart = ii;
+		else if (s[ii] == 0)
+			return (0);
 		else
 			ii += 1;
 	}
