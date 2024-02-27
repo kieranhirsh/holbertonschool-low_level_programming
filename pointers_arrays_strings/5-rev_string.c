@@ -2,7 +2,7 @@
 #include "main.h"
 
 /**
- * revÂ°string - reverses a string
+ * rev_°string - reverses a string
  * @s: the given string
  */
 void rev_string(char *s)
