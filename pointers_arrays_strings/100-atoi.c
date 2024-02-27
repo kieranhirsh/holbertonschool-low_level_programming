@@ -15,10 +15,10 @@ int _atoi(char *s)
 
 	while (numstart < 0)
 	{
+		if (s[ii] == 0)
+			return (0);
 		if (s[ii] >= 48 && s[ii] <= 57)
 			numstart = ii;
-		else if (s[ii] == 0)
-			return (0);
 		else
 			ii += 1;
 	}
