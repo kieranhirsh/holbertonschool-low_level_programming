@@ -11,13 +11,16 @@ char *_strncat(char *dest, char *src, int n)
 	int countd = 0, counts = 0;
 	int ii;
 
-	while (dest[countd] != '\0')
-		countd = countd + 1;
-	while (src[counts] != '\0' && counts < (n - 1))
-		counts = counts + 1;
+	if (n > 0)
+	{
+		while (dest[countd] != '\0')
+			countd = countd + 1;
+		while (src[counts] != '\0' && counts < (n - 1))
+			counts = counts + 1;
 
-	for (ii = countd ; ii <= countd + counts ; ii++)
-		dest[ii] = src[ii - countd];
+		for (ii = countd ; ii <= countd + counts ; ii++)
+			dest[ii] = src[ii - countd];
+	}
 
 	return (dest);
 }
