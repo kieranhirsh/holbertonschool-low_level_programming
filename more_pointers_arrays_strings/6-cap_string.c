@@ -6,7 +6,7 @@
  */
 char *cap_string(char *s)
 {
-	int ii = 0, next = 0;
+	int ii = 0, next = 1;
 
 	while (s[ii] != '\0')
 	{
