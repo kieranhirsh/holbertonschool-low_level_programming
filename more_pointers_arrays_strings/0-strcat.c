@@ -3,7 +3,7 @@
  * @dest: the string to be appended on to
  * @src: the string to append
  *
- * Return - a pointer to the resulting string
+ * Return: a pointer to the resulting string
  */
 char *_strcat(char *dest, char *src)
 {
