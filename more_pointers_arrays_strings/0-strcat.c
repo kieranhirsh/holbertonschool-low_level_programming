@@ -12,7 +12,7 @@ char *_strcat(char *dest, char *src)
 
 	while (dest[countd] != '\0')
 		countd = countd + 1;
-	while (dest[counts] != '\0')
+	while (src[counts] != '\0')
 		counts = counts + 1;
 
 	for (ii = countd ; ii <= countd + counts ; ii++)
