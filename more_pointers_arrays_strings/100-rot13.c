@@ -13,10 +13,13 @@ char *rot13(char *s)
 
 	while (s[ii] != '\0')
 	{
-		for (kk = 0 ; kk <= 52 ; kk++)
+		for (kk = 0 ; kk <= 51 ; kk++)
 		{
 			if (s[ii] == alpha[kk])
+			{
 				s[ii] = rot[kk];
+				break;
+			}
 		}
 		ii = ii + 1;
 	}
