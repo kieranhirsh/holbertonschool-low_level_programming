@@ -29,9 +29,9 @@ void print_buffer(char *b, int size)
 					putchar(' ');
 			}
 			for (jj = 0 ; jj < 10 ; jj++)
-				if ((ii + jj) >= (size - 1))
+				if ((ii + jj) >= size)
 				{
-					printf("\n");
+					/*printf("\n");*/
 					break;
 				}
 				else if (b[ii + jj] >= 32 && b[ii + jj] <= 126)
