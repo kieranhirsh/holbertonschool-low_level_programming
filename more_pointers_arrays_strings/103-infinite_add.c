@@ -1,3 +1,4 @@
+#include <stdio.h>
 /**
  * infinite_add - adds two numbers
  * @n1: the first number to be added
@@ -20,9 +21,6 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	while (n2[len_n2] != '\0')
 		len_n2 += 1;
 
-	if (len_n1 > size_r || len_n2 > size_r)
-		return (0);
-
 	if (len_n1 >= len_n2)
 		len_larger = len_n1;
 	else
@@ -43,11 +41,14 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 
 		r[len_larger - ii] = ((numn1 + numn2 + carry) % 10) + 48;
 
-		if (numn1 + numn2 > 9)
+		if (numn1 + numn2 + carry > 9)
 			carry = 1;
 		else
 			carry = 0;
 	}
+
+	if (len_larger >= size_r && r[0] == '1')
+		return (0);
 
 	if (r[0] == '0')
 	{
