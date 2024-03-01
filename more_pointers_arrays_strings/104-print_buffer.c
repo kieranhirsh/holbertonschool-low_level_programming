@@ -29,7 +29,7 @@ void print_buffer(char *b, int size)
 					putchar(' ');
 			}
 			for (jj = 0 ; jj < 10 ; jj++)
-				if ((ii + jj) >= size)
+				if ((ii + jj) >= (size - 1))
 				{
 					printf("\n");
 					break;
