@@ -5,7 +5,8 @@
  * @r: the buffer that the function will use to store the result
  * @size_r: the size of @r
  *
- * Return: the result of the addition
+ * Return: 0 if the buffer is too small to store the result
+ *         the result of the addition otherwise
  */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
@@ -25,7 +26,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	else
 		len_larger = len_n2;
 
-	if (len_larger > size_r)
+	if (len_larger >= size_r)
 		return (0);
 
 	r[0] = '0';
