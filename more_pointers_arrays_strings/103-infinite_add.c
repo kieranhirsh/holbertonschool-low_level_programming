@@ -21,7 +21,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		len_n2 += 1;
 
 	if (len_n1 > size_r || len_n2 > size_r)
-		return ("0");
+		return ('\0');
 
 	if (len_n1 >= len_n2)
 		len_larger = len_n1;
