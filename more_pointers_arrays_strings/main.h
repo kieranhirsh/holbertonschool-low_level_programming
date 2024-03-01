@@ -1,5 +1,5 @@
-#ifndef MORE_FUNCTIONS_MORE_NESTED_LOOPS
-#define MORE_FUNCTIONS_MORE_NESTED_LOOPS
+#ifndef MORE_POINTERS
+#define MORE_POINTERS
 
 int _putchar(char c);
 char *_strcat(char *dest, char *src);
@@ -12,5 +12,6 @@ char *cap_string(char *);
 char *leet(char *);
 char *rot13(char *);
 void print_number(int n);
+void print_buffer(char *b, int size);
 
 #endif
