@@ -21,15 +21,26 @@ void print_buffer(char *b, int size)
 			printf("%08x: ", ii);
 			for (jj = 0 ; jj < 10 ; jj++)
 			{
-				printf("%02x", b[ii + jj]);
+				if ((ii + jj) >= size)
+					printf("  ");
+				else
+					printf("%02x", b[ii + jj]);
 				if ((jj % 2) == 1)
 					putchar(' ');
 			}
 			for (jj = 0 ; jj < 10 ; jj++)
-				if (b[ii + jj] >= 32 && b[ii + jj] <= 126)
+				if ((ii + jj) >= size)
+				{
+					printf(" ");
+				}
+				else if (b[ii + jj] >= 32 && b[ii + jj] <= 126)
+				{
 					putchar(b[ii + jj]);
+				}
 				else
+				{
 					putchar('.');
+				}
 			putchar('\n');
 		}
 	}
