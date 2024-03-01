@@ -53,6 +53,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	{
 		for (ii = 0 ; ii < len_larger ; ii++)
 			r[ii] = r[ii + 1];
+		r[len_larger] = '\0';
 	}
 
 	return (r);
