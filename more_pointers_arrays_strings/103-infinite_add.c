@@ -26,7 +26,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	else
 		len_larger = len_n2;
 
-	if (len_larger >= size_r)
+	if (len_larger - 1 >= size_r)
 		return (0);
 
 	r[0] = '0';
@@ -52,8 +52,6 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 
 	if (carry == 1)
 	{
-		if (len_larger == size_r)
-			return (0);
 		for (ii = len_larger ; ii >= 1 ; ii--)
 			r[ii] = r[ii - 1];
 		r[0] = '1';
