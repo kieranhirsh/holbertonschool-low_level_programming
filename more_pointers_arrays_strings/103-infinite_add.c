@@ -1,4 +1,3 @@
-#include <stdio.h>
 /**
  * infinite_add - adds two numbers
  * @n1: the first number to be added
@@ -26,18 +25,21 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	else
 		len_larger = len_n2;
 
+	if (len_larger > size_r)
+		return (0);
+
 	r[0] = '0';
 
-	for (ii = 0 ; ii <= len_larger ; ii++)
+	for (ii = 1 ; ii <= len_larger ; ii++)
 	{
-		if (ii >= len_n1)
+		if (ii > len_n1)
 			numn1 = 0;
 		else
-			numn1 = n1[len_n1 - ii - 1] - 48;
-		if (ii >= len_n2)
+			numn1 = n1[len_n1 - ii] - 48;
+		if (ii > len_n2)
 			numn2 = 0;
 		else
-			numn2 = n2[len_n2 - ii - 1] - 48;
+			numn2 = n2[len_n2 - ii] - 48;
 
 		r[len_larger - ii] = ((numn1 + numn2 + carry) % 10) + 48;
 
@@ -47,14 +49,14 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 			carry = 0;
 	}
 
-	if (len_larger >= size_r && r[0] == '1')
-		return (0);
-
-	if (r[0] == '0')
+	if (carry == 1)
 	{
-		for (ii = 0 ; ii < len_larger ; ii++)
-			r[ii] = r[ii + 1];
-		r[len_larger] = '\0';
+		if (len_larger == size_r)
+			return (0);
+		for (ii = len_larger ; ii >= 1 ; ii--)
+			r[ii] = r[ii - 1];
+		r[0] = '1';
+		r[len_larger + 1] = '\0';
 	}
 
 	return (r);
