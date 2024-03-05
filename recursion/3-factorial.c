@@ -1,5 +1,3 @@
-#include "main.h"
-
 /**
  * factorial - calculates the factorial of a number
  * @n: the given number
