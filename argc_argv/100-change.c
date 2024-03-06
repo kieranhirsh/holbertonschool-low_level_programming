@@ -2,35 +2,6 @@
 #include <stdlib.h>
 
 /**
- * coins - calculates the minimum number of coins to make change
- * @cents: the amount of change needed
- * @ncoins: a pointer to the number of coins needed
- *
- * Return: the amount of change needed after the largest coin value
- *         has been subtracted (and the counter incremented)
- *
- */
-int coins(int cents, int *ncoins)
-{
-	int values[5] = {25, 10, 5, 2, 1};
-	unsigned int len = sizeof(values) / sizeof(values[0]);
-	unsigned int ii;
-
-	for (ii = 0 ; ii < len ; ii++)
-	{
-		if (values[ii] <= cents)
-		{
-			*ncoins += 1;
-			cents -= values[ii];
-			coins(cents, ncoins);
-			return (cents);
-		}
-	}
-
-	return (cents);
-}
-
-/**
  * main - check the code
  * @argc: the number of command line arguments passed to the program
  * @argv: the command line arguments passed to the program
@@ -42,6 +13,10 @@ int coins(int cents, int *ncoins)
 int main(int argc, char **argv)
 {
 	int ncoins = 0;
+	int cents;
+	int values[5] = {25, 10, 5, 2, 1};
+	int len = sizeof(values) / sizeof(values[0]);
+	int ii;
 
 	if (argc != 2)
 	{
@@ -49,15 +24,24 @@ int main(int argc, char **argv)
 		return (1);
 	}
 
-	if (atoi(argv[1]) < 1)
+	cents = atoi(argv[1]);
+
+	if (cents < 1)
 	{
 		printf("0\n");
+		return (0);
 	}
-	else
+
+	for (ii = 0 ; ii < len ; ii++)
 	{
-		coins(atoi(argv[1]), &ncoins);
-		printf("%d\n", ncoins);
+		while (values[ii] <= cents)
+		{
+			ncoins += 1;
+			cents -= values[ii];
+		}
 	}
+
+	printf("%d\n", ncoins);
 
 	return (0);
 }
