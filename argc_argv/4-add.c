@@ -12,16 +12,23 @@
  */
 int main(int argc, char **argv)
 {
-	int ii;
+	int ii, jj;
 	int sum = 0;
 
 	for (ii = 1 ; ii < argc ; ii++)
 	{
-		if ((atoi(argv[ii]) == 0) && (*argv[ii] != '0'))
+		jj = 0;
+
+		while (argv[ii][jj] != 0)
 		{
-			printf("Error\n");
-			return (1);
+			if (argv[ii][jj] < 48 || argv[ii][jj] > 57)
+			{
+				printf("Error\n");
+				return (1);
+			}
+			jj += 1;
 		}
+
 		sum += atoi(argv[ii]);
 	}
 
