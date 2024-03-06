@@ -1,5 +1,5 @@
 /**
- * sqrt_calculator - checks if a number is the square root of another number
+ * sqrt_checker - checks if a number is the square root of another number
  * @n: the number to calculate the square root of
  * @x: the number to check whether it is the square root of @n
  *
