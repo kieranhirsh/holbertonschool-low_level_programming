@@ -9,7 +9,7 @@
  */
 int main(int argc, char **argv)
 {
-	unsigned int ii;
+	int ii;
 
 	for (ii = 1 ; ii < argc ; ii++)
 		printf("%s\n", argv[ii]);
