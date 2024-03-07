@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 /**
  * palindrome_check - checks whether a string is a palindrome
  * @s: the string to check
@@ -36,6 +34,7 @@ int length_palindrome(char *s, int len)
 	else
 	{
 		len = length_palindrome(s, len + 1);
+
 		return (len);
 	}
 }
