@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * strdup - duplicates a string
@@ -19,7 +20,7 @@ char *_strdup(char *str)
 	while (str[size] != '\0')
 		size += 1;
 
-	dup = malloc(sizeof(char) * (size + 2));
+	dup = malloc(sizeof(char) * (size + 1));
 	if (dup == NULL)
 		return (NULL);
 
