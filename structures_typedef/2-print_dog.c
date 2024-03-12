@@ -17,14 +17,14 @@ void print_dog(struct dog *d)
 			printf("(nil)\n");
 		printf("Age: ");
 		if ((*d).age)
-			printf("%9.6f\n", (*d).age);
+			printf("%8.6f\n", (*d).age);
 		else
 			printf("(nil)\n");
 		printf("Owner: ");
 		if ((*d).owner)
-			printf("%s", (*d).owner);
+			printf("%s\n", (*d).owner);
 		else
-			printf("(nil)");
+			printf("(nil)\n");
 	}
 }
 
