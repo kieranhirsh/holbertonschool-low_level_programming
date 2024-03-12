@@ -11,8 +11,8 @@
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	void *array;
-	unsigned int ii;
+	char *array;
+	unsigned int ii = 0;
 
 	if (nmemb <= 0 || size <= 0)
 		return (NULL);
@@ -22,7 +22,10 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 		return (NULL);
 
 	while (ii < (nmemb * size))
+	{
 		array[ii] = 0;
+		ii += 1;
+	}
 
 	return (array);
 }
