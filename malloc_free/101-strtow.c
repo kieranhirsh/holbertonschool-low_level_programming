@@ -41,10 +41,10 @@ char **strtow(char *str)
 	if ((*str == '\0') || (str == NULL))
 		return (NULL);
 
+	nwords = wordcount(str);
 	if (nwords == 0)
 		return (NULL);
 
-	nwords = wordcount(str);
 	words = malloc(sizeof(char *) * (nwords + 1));
 	if (words == NULL)
 		return (NULL);
