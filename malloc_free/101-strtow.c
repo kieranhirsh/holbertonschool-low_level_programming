@@ -1,6 +1,28 @@
 #include <stdlib.h>
 
 /**
+ * wordcount - counts the number of words in a string
+ * @str: the string
+ *
+ * Return: the number of words in the string
+ *
+ */
+int wordcount(char *str)
+{
+	int nwords = 0;
+	int ii;
+
+	while (str[ii] != '\0')
+	{
+		if (((str[ii + 1] == ' ') || (str[ii + 1] == '\0')) && (str[ii] != ' '))
+			nwords += 1;
+		ii += 1;
+	}
+
+	return (nwords);
+}
+
+/**
  * strtow - splits a string into words
  * @str: the string
  *
@@ -19,16 +41,10 @@ char **strtow(char *str)
 	if ((*str == '\0') || (str == NULL))
 		return (NULL);
 
-	while (str[ii] != '\0')
-	{
-		if (((str[ii + 1] == ' ') || (str[ii + 1] == '\0')) && (str[ii] != ' '))
-			nwords += 1;
-		ii += 1;
-	}
-
 	if (nwords == 0)
 		return (NULL);
 
+	nwords = wordcount(str);
 	words = malloc(sizeof(char *) * (nwords + 1));
 	if (words == NULL)
 		return (NULL);
