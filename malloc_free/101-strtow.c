@@ -58,7 +58,7 @@ char **strtow(char *str)
 			jj += 1;
 		wordend = jj;
 
-		words[ii] = malloc(sizeof(char) * (wordend - wordstart + 1));
+		words[ii] = malloc(sizeof(char) * (wordend - wordstart));
 		if (words[ii] == NULL)
 		{
 			for (kk = 0 ; kk < ii; kk++)
