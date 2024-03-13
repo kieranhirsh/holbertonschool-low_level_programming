@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include <string.h>
 
 /**
  * _realloc - reallocates memory
@@ -13,6 +12,7 @@
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
 	char *mem;
+	unsigned int ii;
 
 	if (new_size == old_size)
 		return (ptr);
@@ -28,7 +28,8 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	if (mem == NULL)
 		return (NULL);
 
-	memcpy(mem, ptr, new_size);
+	for (ii = 0 ; ii < new_size ; ii++)
+		mem[ii] = ((char *)ptr)[ii];
 
 	free(ptr);
 
