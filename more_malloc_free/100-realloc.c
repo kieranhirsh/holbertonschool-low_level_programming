@@ -30,6 +30,8 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		return (NULL);
 
 	old_ptr = ptr;
+	if (old_size < new_size)
+		new_size = old_size;
 	for (ii = 0 ; ii < new_size ; ii++)
 		mem[ii] = old_ptr[ii];
 
