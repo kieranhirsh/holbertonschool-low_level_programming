@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "main.h"
 
 /**
@@ -26,6 +27,7 @@ int _strlen(char *str)
  */
 int main(int argc, char **argv)
 {
+	char *prod;
 	int len1, len2;
 	int is_zero = 1;
 	int ii;
@@ -74,6 +76,10 @@ int main(int argc, char **argv)
 		_putchar('\n');
 		return (0);
 	}
+
+	prod = malloc(sizeof(char) * (len1 + len2));
+	for (ii = 0 ; ii < (len1 + len2) ; ii++)
+		prod[ii] = '0';
 
 	return (0);
 }
