@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "main.h"
 
 /**
  * _strlen - finds the length of a string
@@ -26,6 +27,7 @@ int _strlen(char *str)
 int main(int argc, char **argv)
 {
 	int len1, len2;
+	int is_zero = 1;
 	int ii;
 
 	if (argc != 3)
@@ -45,7 +47,16 @@ int main(int argc, char **argv)
 			printf("Error\n");
 			return (98);
 		}
+		if (argv[1][ii] != 48)
+			is_zero = 0;
 	}
+	if (is_zero == 1)
+	{
+		_putchar('0');
+		_putchar('\n');
+		return (0);
+	}
+	is_zero = 1;
 
 	for (ii = 0 ; ii < len2 ; ii++)
 	{
@@ -54,6 +65,14 @@ int main(int argc, char **argv)
 			printf("Error\n");
 			return (98);
 		}
+		if (argv[2][ii] != 48)
+			is_zero = 0;
+	}
+	if (is_zero == 1)
+	{
+		_putchar('0');
+		_putchar('\n');
+		return (0);
 	}
 
 	return (0);
