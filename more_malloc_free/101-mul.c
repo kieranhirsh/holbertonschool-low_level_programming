@@ -26,6 +26,7 @@ int _strlen(char *str)
 int main(int argc, char **argv)
 {
 	int len1, len2;
+	int ii;
 
 	if (argc != 3)
 	{
@@ -36,6 +37,24 @@ int main(int argc, char **argv)
 
 	len1 = _strlen(argv[1]);
 	len2 = _strlen(argv[2]);
+
+	for (ii = 0 ; ii < len1 ; ii++)
+	{
+		if ((argv[1][ii] < 48) || (argv[1][ii] > 57))
+		{
+			printf("Error\n");
+			return (98);
+		}
+	}
+
+	for (ii = 0 ; ii < len2 ; ii++)
+	{
+		if ((argv[2][ii] < 48) || (argv[2][ii] > 57))
+		{
+			printf("Error\n");
+			return (98);
+		}
+	}
 
 	return (0);
 }
