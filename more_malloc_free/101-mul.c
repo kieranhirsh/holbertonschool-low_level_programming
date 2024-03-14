@@ -28,9 +28,9 @@ int _strlen(char *str)
 int main(int argc, char **argv)
 {
 	char *prod;
-	int len1, len2;
+	int len[2];
 	int is_zero = 1;
-	int ii;
+	int ii, jj;
 
 	if (argc != 3)
 	{
@@ -39,46 +39,32 @@ int main(int argc, char **argv)
 
 	}
 
-	len1 = _strlen(argv[1]);
-	len2 = _strlen(argv[2]);
+	len[0] = _strlen(argv[1]);
+	len[1] = _strlen(argv[2]);
 
-	for (ii = 0 ; ii < len1 ; ii++)
+	for (ii = 1 ; ii <= (argc - 1) ; ii++)
 	{
-		if ((argv[1][ii] < 48) || (argv[1][ii] > 57))
+		for (jj = 0 ; jj < len[0] ; jj++)
 		{
-			printf("Error\n");
-			return (98);
+			if ((argv[ii][jj] < 48) || (argv[ii][jj] > 57))
+			{
+				printf("Error\n");
+				return (98);
+			}
+			if (argv[ii][jj] != 48)
+				is_zero = 0;
 		}
-		if (argv[1][ii] != 48)
-			is_zero = 0;
-	}
-	if (is_zero == 1)
-	{
-		_putchar('0');
-		_putchar('\n');
-		return (0);
-	}
-	is_zero = 1;
-
-	for (ii = 0 ; ii < len2 ; ii++)
-	{
-		if ((argv[2][ii] < 48) || (argv[2][ii] > 57))
+		if (is_zero == 1)
 		{
-			printf("Error\n");
-			return (98);
+			_putchar('0');
+			_putchar('\n');
+			return (0);
 		}
-		if (argv[2][ii] != 48)
-			is_zero = 0;
-	}
-	if (is_zero == 1)
-	{
-		_putchar('0');
-		_putchar('\n');
-		return (0);
+		is_zero = 1;
 	}
 
-	prod = malloc(sizeof(char) * (len1 + len2));
-	for (ii = 0 ; ii < (len1 + len2) ; ii++)
+	prod = malloc(sizeof(char) * (len[0] + len[1]));
+	for (ii = 0 ; ii < (len[0] + len[1]) ; ii++)
 		prod[ii] = '0';
 
 	return (0);
