@@ -34,7 +34,7 @@ void multiply(char *num1, char num2, int power, char *prod)
 	int lennum, lenprod;
 	int carry = 0;
 	int digit2, mult;
-	int ii;
+	int i, ii;
 
 	lennum = _strlen(num1) - 1;
 	lenprod = _strlen(prod) - 1;
@@ -42,8 +42,9 @@ void multiply(char *num1, char num2, int power, char *prod)
 	{
 		digit2 = num1[lennum - ii];
 		mult = carry + (num2 - 48) * (digit2 - 48);
-		carry = (mult + prod[lenprod - power - ii] - 48) / 10;
-		prod[lenprod - power - ii] = (prod[lenprod - power - ii] - 48 + mult) % 10 + 48;
+		i = lenprod - power - ii;
+		carry = (mult + prod[i] - 48) / 10;
+		prod[i] = (prod[i] - 48 + mult) % 10 + 48;
 	}
 	prod[lenprod - power - lennum - 1] += carry;
 }
