@@ -59,7 +59,7 @@ int main(int argc, char **argv)
 {
 	char *prod;
 	int len[2];
-	int is_zero = 1;
+	int is_zero = 1, nzeros = 0;
 	int ii, jj;
 
 	if (argc != 3)
@@ -99,6 +99,13 @@ int main(int argc, char **argv)
 
 	for (ii = 0 ; ii < len[1] ; ii++)
 		multiply(argv[1], argv[2][len[1] - ii - 1], ii, prod);
+
+	while (prod[nzeros] == '0')
+		nzeros += 1;
+
+	for (ii = nzeros ; ii < (len[0] + len[1]) ; ii++)
+		_putchar(prod[ii]);
+	_putchar('\n');
 
 	return (0);
 }
