@@ -115,11 +115,12 @@ int main(int argc, char **argv)
 		len[ii - 1] = _strlen(argv[ii]);
 	}
 
-	prod = malloc(sizeof(char) * (len[0] + len[1]));
+	prod = malloc(sizeof(char) * (len[0] + len[1]) + 1);
 	if (prod == NULL)
 		return (1);
 	for (ii = 0 ; ii < (len[0] + len[1]) ; ii++)
 		prod[ii] = '0';
+	prod[len[0] + len[1]] = '\0';
 
 	for (ii = 0 ; ii < len[1] ; ii++)
 		multiply(argv[1], argv[2][len[1] - ii - 1], ii, prod);
