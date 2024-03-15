@@ -96,8 +96,8 @@ int main(int argc, char **argv)
 {
 	char *prod;
 	int len[2];
-	int is_zero = 1, nzeros = 0;
-	int check, ii, jj;
+	int nzeros = 0;
+	int check, ii;
 
 	if (argc != 3)
 	{
