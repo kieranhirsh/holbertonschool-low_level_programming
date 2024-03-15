@@ -94,6 +94,8 @@ int main(int argc, char **argv)
 	}
 
 	prod = malloc(sizeof(char) * (len[0] + len[1]));
+	if (prod == NULL)
+		return (1);
 	for (ii = 0 ; ii < (len[0] + len[1]) ; ii++)
 		prod[ii] = '0';
 
