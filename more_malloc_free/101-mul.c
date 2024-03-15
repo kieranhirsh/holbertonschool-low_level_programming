@@ -19,6 +19,42 @@ int _strlen(char *str)
 }
 
 /**
+ * check_arg - checks if an argument is valid
+ * @str: the string
+ *
+ * Return: 0 if success
+ *         1 if not a number
+ *         2 if zero
+ */
+int check_arg(char *str)
+{
+	int ii;
+	int len;
+	int is_zero = 1;
+
+	len = _strlen(str);
+	for (ii = 0 ; ii < len ; ii++)
+	{
+		if ((str[ii] < 48) || (str[ii] > 57))
+		{
+			printf("Error\n");
+			return (1);
+		}
+		if (str[ii] != 48)
+			is_zero = 0;
+	}
+
+	if (is_zero == 1)
+	{
+		_putchar('0');
+		_putchar('\n');
+		return (2);
+	}
+
+	return (0);
+}
+
+/**
  * multiply - multiplies a number by a number with a single non-zero digit
  * @num1: the first number to be multiplied
  * @num2: the second number to be multiplied (must be single digit)
@@ -61,37 +97,22 @@ int main(int argc, char **argv)
 	char *prod;
 	int len[2];
 	int is_zero = 1, nzeros = 0;
-	int ii, jj;
+	int check, ii, jj;
 
 	if (argc != 3)
 	{
 		printf("Error\n");
 		return (98);
-
 	}
-
-	len[0] = _strlen(argv[1]);
-	len[1] = _strlen(argv[2]);
 
 	for (ii = 1 ; ii <= (argc - 1) ; ii++)
 	{
-		for (jj = 0 ; jj < len[0] ; jj++)
-		{
-			if ((argv[ii][jj] < 48) || (argv[ii][jj] > 57))
-			{
-				printf("Error\n");
-				return (98);
-			}
-			if (argv[ii][jj] != 48)
-				is_zero = 0;
-		}
-		if (is_zero == 1)
-		{
-			_putchar('0');
-			_putchar('\n');
+		check = check_arg(argv[ii]);
+		if (check == 1)
+			return (98);
+		else if (check == 2)
 			return (0);
-		}
-		is_zero = 1;
+		len[ii - 1] = _strlen(argv[ii]);
 	}
 
 	prod = malloc(sizeof(char) * (len[0] + len[1]));
