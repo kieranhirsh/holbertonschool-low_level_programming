@@ -19,6 +19,36 @@ int _strlen(char *str)
 }
 
 /**
+ * multiply - multiplies a number by a number with a single non-zero digit
+ * @num1: the first number to be multiplied
+ * @num2: the second number to be multiplied (must be single digit)
+ * @power: the power of 10 @num2 represents
+ *         i.e. @num2 = 3 and @power = 1 represents 30
+ * @prod: the number to which the product of the multiplcation is added
+ *         i.e. the final result is @prod + @num1 * @num2 * 10 ^ @power
+ *         this lets us miltiply @num1 by any number using many steps
+ *
+ */
+void multiply(char *num1, char num2, int power, char* prod)
+{
+	int lennum, lenprod;
+	int carry = 0;
+	int digit2, mult;
+	int ii;
+
+	lennum = _strlen(num1) - 1;
+	lenprod = _strlen(prod) - 1;
+	for (ii = 0 ; ii <= lennum ; ii++)
+	{
+		digit2 = num1[lennum - ii];
+		mult = carry + (num2 - 48) * (digit2 - 48);
+		carry = (mult + prod[lenprod - power - ii] - 48) / 10;
+		prod[lenprod - power - ii] = (prod[lenprod - power - ii] - 48 + mult) % 10 + 48;
+	}
+	prod[lenprod - power - lennum - 1] = prod[lenprod - power - lennum - 1] + carry;
+}
+
+/**
  * main - check the code
  * @argc: the number of command line arguments passed to the program
  * @argv: the command line arguments passed to the program (unused)
@@ -66,6 +96,9 @@ int main(int argc, char **argv)
 	prod = malloc(sizeof(char) * (len[0] + len[1]));
 	for (ii = 0 ; ii < (len[0] + len[1]) ; ii++)
 		prod[ii] = '0';
+
+	for (ii = 0 ; ii < len[1] ; ii++)
+		multiply(argv[1], argv[2][len[1] - ii - 1], ii, prod);
 
 	return (0);
 }
