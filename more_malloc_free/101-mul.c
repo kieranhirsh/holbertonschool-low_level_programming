@@ -29,7 +29,7 @@ int _strlen(char *str)
  *         this lets us miltiply @num1 by any number using many steps
  *
  */
-void multiply(char *num1, char num2, int power, char* prod)
+void multiply(char *num1, char num2, int power, char *prod)
 {
 	int lennum, lenprod;
 	int carry = 0;
@@ -45,7 +45,7 @@ void multiply(char *num1, char num2, int power, char* prod)
 		carry = (mult + prod[lenprod - power - ii] - 48) / 10;
 		prod[lenprod - power - ii] = (prod[lenprod - power - ii] - 48 + mult) % 10 + 48;
 	}
-	prod[lenprod - power - lennum - 1] = prod[lenprod - power - lennum - 1] + carry;
+	prod[lenprod - power - lennum - 1] += carry;
 }
 
 /**
@@ -106,6 +106,8 @@ int main(int argc, char **argv)
 	for (ii = nzeros ; ii < (len[0] + len[1]) ; ii++)
 		_putchar(prod[ii]);
 	_putchar('\n');
+
+	free(prod);
 
 	return (0);
 }
