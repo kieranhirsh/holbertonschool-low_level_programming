@@ -1,9 +1,10 @@
 #include <stddef.h>
 
 /**
- * print_name - prints a name
- * @name: the name to be printed
- * @f: the function that does the printing
+ * array_iterator - evaluates a function for all elements of an array
+ * @array: the array
+ * @size: the size of the array
+ * @action: the funcction
  *
  */
 void array_iterator(int *array, size_t size, void (*action)(int))
