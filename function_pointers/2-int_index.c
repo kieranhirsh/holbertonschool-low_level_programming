@@ -1,4 +1,5 @@
 #include <stddef.h>
+#include "function_pointers.h"
 
 /**
  * int_index - finds the first index of an array that passes a check
