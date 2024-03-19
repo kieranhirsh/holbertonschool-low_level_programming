@@ -3,6 +3,7 @@
 
 /**
  * print_numbers - prints a bunch of numbers
+ * @separator: the string to be printed between the numbers
  * @n: the numbers to be printed
  *
  */
