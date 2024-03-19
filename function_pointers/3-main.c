@@ -6,6 +6,8 @@
 
 /**
  * main - check the code
+ * @argc: the number of command line arguments
+ * @argv: the list of command line arguments
  *
  * Return: Always 0.
  */
@@ -24,7 +26,7 @@ int main(int argc, char **argv)
 
 	operand = argv[2];
 
-	if (strchr(ops, *operand) == NULL)
+	if ((strchr(ops, *operand) == NULL) || (strlen(operand) != 1))
 	{
 		printf("Error\n");
 		return (99);
