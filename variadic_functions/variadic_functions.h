@@ -14,7 +14,7 @@
 typedef struct operations
 {
 	char type;
-	void (*func)(va_list *args, int *logical);
+	void (*func)(va_list *args);
 } operation;
 
 int sum_them_all(const unsigned int n, ...);
