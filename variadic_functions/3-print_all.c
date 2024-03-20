@@ -100,7 +100,7 @@ void print_all(const char * const format, ...)
 
 	va_start(args, format);
 
-	while (format[ii] != '\0')
+	while ((format != NULL) && (format[ii] != '\0'))
 	{
 		jj = 0;
 		while ((format[ii] != op[jj].type) && (op[jj].type != '\0'))
