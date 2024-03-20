@@ -30,9 +30,12 @@ int main(int argc, char **argv)
 
 	for (ii = 0 ; ii < bytes ; ii++)
 	{
-		printf("%.2x ", ((unsigned char *)address)[ii]);
+		printf("%.2x", ((unsigned char *)address)[ii]);
+		if (ii == (bytes - 1))
+			printf("\n");
+		else
+			printf(" ");
 	}
-	printf("\n");
 
 	return (0);
 }
