@@ -11,7 +11,7 @@ int main(int argc, char **argv)
 {
 	int bytes;
 	int ii;
-	int (*address)(int,char **);
+	int (*address)(int, char **);
 
 	if (argc != 2)
 	{
