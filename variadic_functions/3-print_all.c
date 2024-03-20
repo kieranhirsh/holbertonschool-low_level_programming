@@ -5,7 +5,6 @@
 /**
  * print_char - prints a char
  * @args: the char to be printed
- * @logical: tells main that something has been printed
  *
  */
 void print_char(va_list *args)
@@ -20,7 +19,6 @@ void print_char(va_list *args)
 /**
  * print_string - prints a string
  * @args: the string to be printed
- * @logical: tells main that something has been printed
  *
  */
 void print_string(va_list *args)
@@ -37,7 +35,6 @@ void print_string(va_list *args)
 /**
  * print_int - prints an int
  * @args: the int to be printed
- * @logical: tells main that something has been printed
  *
  */
 void print_int(va_list *args)
@@ -52,7 +49,6 @@ void print_int(va_list *args)
 /**
  * print_float - prints a float
  * @args: the float to be printed
- * @logical: tells main that something has been printed
  *
  */
 void print_float(va_list *args)
