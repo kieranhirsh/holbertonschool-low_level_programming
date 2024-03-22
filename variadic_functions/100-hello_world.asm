@@ -1,11 +1,11 @@
 section .data
-msg: DB 'Hello, World', 10
-msgSize EQU $ - msg
-
-global start
+	msg: DB 'Hello, World', 10
+	msgSize EQU $ - msg
 
 section .text
-	start:
+	global main
+
+main:
 	mov rax, 4
 	mov rbx, 1
 	mov rcx, msg
