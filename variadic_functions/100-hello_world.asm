@@ -5,7 +5,7 @@ msgSize EQU $ - msg
 global start
 
 section .text
-	start;
+	start:
 	mov rax, 4
 	mov rbx, 1
 	mov rcx, msg
