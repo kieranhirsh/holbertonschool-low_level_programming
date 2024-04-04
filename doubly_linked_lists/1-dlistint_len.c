@@ -2,7 +2,7 @@
 #include "lists.h"
 
 /**
- * dlistint_t - prints the length of a doubly linked list
+ * dlistint_len - prints the length of a doubly linked list
  * @h: the list
  *
  * Return: the size of the list
