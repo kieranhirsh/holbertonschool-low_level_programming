@@ -13,7 +13,10 @@ size_t list_len(const list_t *h)
 	unsigned int num_of_nodes = 0;
 
 	while (h != NULL)
+	{
 		num_of_nodes += 1;
+		h = (*h).next;
+	}
 
 	return (num_of_nodes);
 }
