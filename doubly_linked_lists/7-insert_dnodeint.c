@@ -5,8 +5,8 @@
 /**
  * insert_dnodeint_at_index - adds a node to a list
  * @h: a pointer to the start of the list
- * #idx: the index where the node is to be added
- * @n: the in to add to the list
+ * @idx: the index where the node is to be added
+ * @n: the int to add to the list
  *
  * Return: if success, a pointer to new element
  *         otherwise, NULL
@@ -24,7 +24,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	for (ii = 0 ; ii < idx ; ii++)
 	{
 		if ((*temp).next == NULL)
-			return (NULL);
+			return (add_dnodeint_end(h, n));
 
 		temp = (*temp).next;
 	}
