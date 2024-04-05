@@ -3,9 +3,9 @@
 #include "lists.h"
 
 /**
- * get_dnode_at_index - gets a node at an index
+ * get_dnodeint_at_index - gets a node at an index
  * @head: the list
- * @index; the index
+ * @index: the index
  *
  * Return: a pointer to the node at the index
  *
