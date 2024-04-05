@@ -16,7 +16,6 @@ void free_dlistint(dlistint_t *head)
 		while (head != NULL)
 		{
 			temp = head;
-			free((*head).prev);
 			free(head);
 			head = (*temp).next;
 		}
