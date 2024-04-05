@@ -16,7 +16,12 @@ dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 	unsigned int ii;
 
 	for (ii = 0 ; ii < index ; ii++)
-		temp = (*temp).next;
+	{
+		if ((*temp).next == NULL)
+			return (NULL);
+		else
+			temp = (*temp).next;
+	}
 
 	return (temp);
 }
