@@ -11,7 +11,7 @@
  */
 int set_bit(unsigned long int *n, unsigned int index)
 {
-	unsigned int power = 1;
+	unsigned long int power = 1;
 	unsigned int ii;
 
 	if (index >= (8 * sizeof(n)))
