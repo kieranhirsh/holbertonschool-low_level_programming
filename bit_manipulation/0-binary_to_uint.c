@@ -15,7 +15,7 @@ unsigned int binary_to_uint(const char *b)
 	unsigned int uint = 0, len = 0;
 	unsigned int power = 1;
 
-	if (b == NULL)
+	if (*b == '\0')
 		return (0);
 
 	while (b[len] != '\0')
@@ -30,8 +30,7 @@ unsigned int binary_to_uint(const char *b)
 		len -= 1;
 		uint += (b[len] - 48) * power;
 		power *= 2;
-	}
-	while (len > 0);
+	} while (len > 0);
 
 	return (uint);
 }
