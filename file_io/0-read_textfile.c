@@ -23,6 +23,8 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if ((filename == NULL) || (fd == -1) || (buffer == NULL))
 		return (0);
 
+	free(buffer);
+
 	return (write(STDOUT_FILENO, buffer, bytesread));
 }
 
