@@ -35,7 +35,7 @@ int main(int argc, char **argv)
 	char *file_from = argv[1];
 	char *file_to = argv[2];
 	int fdfrom = open(file_from, O_RDONLY);
-	int fdto = open(file_to, O_RDWR | O_CREAT | O_TRUNC, 0664);
+	int fdto = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	int bytesread = 1024;
 
 	if (argc != 3)
