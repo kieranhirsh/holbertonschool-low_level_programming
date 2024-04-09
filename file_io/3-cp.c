@@ -36,7 +36,7 @@ int main(int argc, char **argv)
 	char *file_to = argv[2];
 	int fdfrom = open(file_from, O_RDONLY);
 	int fdto = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
-	int bytesread = 1024;
+	int bytesread = 1024, byteswritten;
 
 	if (argc != 3)
 	{
@@ -61,7 +61,8 @@ int main(int argc, char **argv)
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 			return (98);
 		}
-		if (write(fdto, buffer, bytesread) == -1)
+		byteswritten = write(fdto, buffer, bytesread)
+		if (byteswritten == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 			return (99);
