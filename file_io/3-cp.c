@@ -34,15 +34,15 @@ int main(int argc, char **argv)
 	char *buffer[1024];
 	char *file_from = argv[1];
 	char *file_to = argv[2];
-	int fdfrom = open(file_from, O_RDONLY);
-	int fdto = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
-	int bytesread = 1024, byteswritten;
+	int fdfrom, fdto, bytesread, byteswritten;
 
 	if (argc != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		return (97);
 	}
+	fdfrom = open(file_from, O_RDONLY);
+	fdto = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (fdfrom == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
