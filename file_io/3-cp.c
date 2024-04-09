@@ -36,7 +36,7 @@ int main(int argc, char **argv)
 	char *file_to = argv[2];
 	int fdfrom = open(file_from, O_RDONLY);
 	int fdto = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
-	int bytesread, byteswritten;
+	int bytesread = 1024, byteswritten;
 
 	if (argc != 3)
 	{
@@ -54,7 +54,7 @@ int main(int argc, char **argv)
 		return (99);
 	}
 	do {
-		bytesread = read(fdfrom, buffer, bytesread);
+		bytesread = read(fdfrom, buffer, 1024);
 		if (bytesread == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
