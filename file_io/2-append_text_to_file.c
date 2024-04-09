@@ -15,7 +15,7 @@
  */
 int append_text_to_file(const char *filename, char *text_content)
 {
-	int fd = open(filename, O_RDWR | O_CREAT | O_APPEND, 0600);
+	int fd = open(filename, O_RDWR | O_APPEND);
 	int len = 0;
 	int byteswritten;
 
