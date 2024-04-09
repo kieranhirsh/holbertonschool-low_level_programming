@@ -4,6 +4,32 @@
 #include <unistd.h>
 
 /**
+ * exit_case - handles errors poorly (is prone to user error)
+ * @code: the error code
+ * @filename: the name of the file that is causing the error
+ * @fd: the file descriptor that is causing the error
+ *
+ */
+void exit_case(int code, char *filename, int fd)
+{
+	switch (code)
+	{
+	case 97:
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		exit(97);
+	case 98:
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", filename);
+		exit(98);
+	case 99:
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
+		exit(99);
+	case 100:
+		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", fd);
+		exit(code);
+	}
+}
+
+/**
  * close_file - closes a file
  * @fd: the file descriptor
  *
@@ -11,10 +37,7 @@
 void close_file(int fd)
 {
 	if (close(fd) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", fd);
-		exit(100);
-	}
+		exit_case(100, NULL, fd);
 }
 
 /**
@@ -37,38 +60,31 @@ int main(int argc, char **argv)
 	int fdfrom, fdto, bytesread, byteswritten;
 
 	if (argc != 3)
-	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		return (97);
-	}
+		exit_case(97, NULL, 0);
+
 	fdfrom = open(file_from, O_RDONLY);
 	fdto = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
+
 	if (fdfrom == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
-		return (98);
-	}
+		exit_case(98, file_from, 0);
 	if (fdto == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
-		return (99);
-	}
+		exit_case(99, file_to, 0);
+
 	do {
 		bytesread = read(fdfrom, buffer, 1024);
+
 		if (bytesread == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
-			return (98);
-		}
+			exit_case(98, file_from, 0);
+
 		byteswritten = write(fdto, buffer, bytesread);
+
 		if (byteswritten == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
-			return (99);
-		}
+			exit_case(99, file_to, 0);
 	} while (bytesread != 0);
+
 	close_file(fdfrom);
 	close_file(fdto);
+
 	return (0);
 }
 
