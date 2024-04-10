@@ -111,7 +111,7 @@ int main(int argc, char **argv)
 
 		if (byteswritten == -1)
 			exit_case(99, file_to, 0);
-	} while (bytesread != 0);
+	} while (bytesread == 1024);
 
 	close_file(fdfrom);
 	close_file(fdto);
