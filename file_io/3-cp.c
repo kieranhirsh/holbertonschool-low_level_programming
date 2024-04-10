@@ -30,6 +30,42 @@ void exit_case(int code, char *filename, int fd)
 }
 
 /**
+ * open_src - opens the source file
+ * @filename: the name of the file to open
+ *
+ * Return: the file descriptor of the opened file
+ */
+int open_src(char *filename)
+{
+	int fd;
+
+	fd = open(filename, O_RDONLY);
+
+	if (fd == -1)
+		exit_case(98, filename, 0);
+
+	return (fd);
+}
+
+/**
+ * open_dest - opens the destination file
+ * @filename: the name of the file to open
+ *
+ * Return: the file descriptor of the opened file
+ */
+int open_dest(char *filename)
+{
+	int fd;
+
+	fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0664);
+
+	if (fd == -1)
+		exit_case(99, filename, 0);
+
+	return (fd);
+}
+
+/**
  * close_file - closes a file
  * @fd: the file descriptor
  *
@@ -62,13 +98,8 @@ int main(int argc, char **argv)
 	if (argc != 3)
 		exit_case(97, NULL, 0);
 
-	fdfrom = open(file_from, O_RDONLY);
-	fdto = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
-
-	if (fdfrom == -1)
-		exit_case(98, file_from, 0);
-	if (fdto == -1)
-		exit_case(99, file_to, 0);
+	fdfrom = open_src(file_from);
+	fdto = open_dest(file_to);
 
 	do {
 		bytesread = read(fdfrom, buffer, 1024);
