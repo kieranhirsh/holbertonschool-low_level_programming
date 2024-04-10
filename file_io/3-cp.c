@@ -90,10 +90,13 @@ void close_file(int fd)
  */
 int main(int argc, char **argv)
 {
-	char *buffer[1024];
+	int buffersize = 1024;
+	char *buffer;
 	char *file_from = argv[1];
 	char *file_to = argv[2];
 	int fdfrom, fdto, bytesread, byteswritten;
+
+	buffer = malloc(sizeof(char) * buffersize);
 
 	if (argc != 3)
 		exit_case(97, NULL, 0);
@@ -102,7 +105,7 @@ int main(int argc, char **argv)
 	fdto = open_dest(file_to);
 
 	do {
-		bytesread = read(fdfrom, buffer, 1024);
+		bytesread = read(fdfrom, buffer, buffersize);
 
 		if (bytesread == -1)
 			exit_case(98, file_from, 0);
@@ -111,10 +114,11 @@ int main(int argc, char **argv)
 
 		if (byteswritten == -1)
 			exit_case(99, file_to, 0);
-	} while (bytesread == 1024);
+	} while (bytesread == buffersize);
 
 	close_file(fdfrom);
 	close_file(fdto);
+	free(buffer);
 
 	return (0);
 }
