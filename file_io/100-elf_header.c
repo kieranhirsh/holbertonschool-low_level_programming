@@ -16,25 +16,25 @@ void check_elf(unsigned char *e_ident)
 {
 	if (e_ident[EI_MAG0] != 127)
 	{
-		dprintf(STDERR_FILENO,"Not an ELF file\n");
+		dprintf(STDERR_FILENO, "Not an ELF file\n");
 		exit(98);
 	}
 
 	if (e_ident[EI_MAG1] != 'E')
 	{
-		dprintf(STDERR_FILENO,"Not an ELF file\n");
+		dprintf(STDERR_FILENO, "Not an ELF file\n");
 		exit(98);
 	}
 
 	if (e_ident[EI_MAG2] != 'L')
 	{
-		dprintf(STDERR_FILENO,"Not an ELF file\n");
+		dprintf(STDERR_FILENO, "Not an ELF file\n");
 		exit(98);
 	}
 
 	if (e_ident[EI_MAG3] != 'F')
 	{
-		dprintf(STDERR_FILENO,"Not an ELF file\n");
+		dprintf(STDERR_FILENO, "Not an ELF file\n");
 		exit(98);
 	}
 
@@ -219,7 +219,7 @@ void print_type(unsigned int e_type, unsigned char *e_ident)
  * @e_ident: the class
  *
  */
-void print_entry(long unsigned int e_entry, unsigned char *e_ident)
+void print_entry(unsigned long int e_entry, unsigned char *e_ident)
 {
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 		e_entry = __builtin_bswap32(e_entry);
@@ -257,7 +257,7 @@ int main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		dprintf(STDERR_FILENO,"usage: %s filename\n", argv[0]);
+		dprintf(STDERR_FILENO, "usage: %s filename\n", argv[0]);
 		return (98);
 	}
 
@@ -266,13 +266,13 @@ int main(int argc, char **argv)
 	header = malloc(sizeof(Elf64_Ehdr));
 	if (header == NULL)
 	{
-		dprintf(STDERR_FILENO,"couldn't malloc\n");
+		dprintf(STDERR_FILENO, "couldn't malloc\n");
 		return (98);
 	}
 
 	if (read(fd, header, sizeof(Elf64_Ehdr)) == -1)
 	{
-		dprintf(STDERR_FILENO,"couldn't read %s\n", argv[1]);
+		dprintf(STDERR_FILENO, "couldn't read %s\n", argv[1]);
 		return (98);
 	}
 
