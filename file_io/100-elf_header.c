@@ -1,5 +1,6 @@
 #include <elf.h>
 #include <fcntl.h>
+#include <inttypes.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
@@ -136,7 +137,6 @@ void print_version(unsigned char *e_ident)
 void print_osabi(unsigned char *e_ident)
 {
 	printf("  OS/ABI:                            ");
-
 	switch (e_ident[EI_OSABI])
 	{
 	case ELFOSABI_NONE:
@@ -189,10 +189,12 @@ void print_abiversion(unsigned char *e_ident)
  * @e_type: the type
  *
  */
-void print_type(unsigned int e_type)
+void print_type(unsigned int e_type, unsigned char *e_ident)
 {
-	printf("  Type:                              ");
+	if (e_ident[EI_DATA] == ELFDATA2MSB)
+		e_type = __builtin_bswap64(e_type);
 
+	printf("  Type:                              ");
 	switch (e_type)
 	{
 	case (ET_NONE):
@@ -221,8 +223,11 @@ void print_type(unsigned int e_type)
  * @e_ident: the class
  *
  */
-void print_entry(Elf64_Addr e_entry, unsigned char *e_ident)
+void print_entry(long unsigned int e_entry, unsigned char *e_ident)
 {
+	if (e_ident[EI_DATA] == ELFDATA2MSB)
+		e_entry = __builtin_bswap64(e_entry);
+
 	printf("  Entry point address:               0x");
 	switch (e_ident[EI_CLASS])
 	{
@@ -282,7 +287,7 @@ int main(int argc, char **argv)
 	print_version(header->e_ident);
 	print_osabi(header->e_ident);
 	print_abiversion(header->e_ident);
-	print_type(header->e_type);
+	print_type(header->e_type, header->e_ident);
 	print_entry(header->e_entry, header->e_ident);
 
 	free(header);
