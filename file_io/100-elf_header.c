@@ -46,7 +46,7 @@ void check_elf(unsigned char *e_ident)
 
 /**
  * print_magic - prints the magic numbers
- * @e_type: the magic numbers
+ * @e_ident: the magic numbers
  *
  */
 void print_magic(unsigned char *e_ident)
@@ -61,7 +61,7 @@ void print_magic(unsigned char *e_ident)
 
 /**
  * print_class - prints the class
- * @e_type: the class
+ * @e_ident: the class
  *
  */
 void print_class(unsigned char *e_ident)
@@ -85,7 +85,7 @@ void print_class(unsigned char *e_ident)
 
 /**
  * print_data - prints the data
- * @e_type: the data
+ * @e_ident: the data
  *
  */
 void print_data(unsigned char *e_ident)
@@ -109,7 +109,7 @@ void print_data(unsigned char *e_ident)
 
 /**
  * print_version - prints the version
- * @e_type: the version
+ * @e_ident: the version
  *
  */
 void print_version(unsigned char *e_ident)
@@ -130,7 +130,7 @@ void print_version(unsigned char *e_ident)
 
 /**
  * print_osabi - prints the OS/ABI
- * @e_type: the OS/ABI
+ * @e_ident: the OS/ABI
  *
  */
 void print_osabi(unsigned char *e_ident)
@@ -175,8 +175,8 @@ void print_osabi(unsigned char *e_ident)
 }
 
 /**
- * print_osabi - prints the OS/ABI
- * @e_type: the OS/ABI
+ * print_abiversion - prints the ABI version
+ * @e_ident: the ABI version
  *
  */
 void print_abiversion(unsigned char *e_ident)
@@ -218,11 +218,26 @@ void print_type(unsigned int e_type)
 /**
  * print_entry - prints the entry
  * @e_entry: the entry
+ * @e_ident: the class
  *
  */
-void print_entry(Elf64_Addr e_entry)
+void print_entry(Elf64_Addr e_entry, unsigned char *e_ident)
 {
-	printf("  Entry point address:               0x%lx\n", e_entry);
+	printf("  Entry point address:               0x");
+	switch (e_ident[EI_CLASS])
+	{
+	case (ELFCLASSNONE):
+		printf("none\n");
+		break;
+	case (ELFCLASS32):
+		printf("%x\n", (unsigned int)e_entry);
+		break;
+	case (ELFCLASS64):
+		printf("%lx\n", e_entry);
+		break;
+	default:
+		printf("<unknown: %lx>\n", e_entry);
+	}
 }
 
 /**
@@ -268,7 +283,7 @@ int main(int argc, char **argv)
 	print_osabi(header->e_ident);
 	print_abiversion(header->e_ident);
 	print_type(header->e_type);
-	print_entry(header->e_entry);
+	print_entry(header->e_entry, header->e_ident);
 
 	free(header);
 	close(fd);
