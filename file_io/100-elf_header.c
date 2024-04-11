@@ -192,7 +192,7 @@ void print_abiversion(unsigned char *e_ident)
 void print_type(unsigned int e_type, unsigned char *e_ident)
 {
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
-		e_type = __builtin_bswap64(e_type);
+		e_type = __builtin_bswap32(e_type);
 
 	printf("  Type:                              ");
 	switch (e_type)
@@ -226,7 +226,7 @@ void print_type(unsigned int e_type, unsigned char *e_ident)
 void print_entry(long unsigned int e_entry, unsigned char *e_ident)
 {
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
-		e_entry = __builtin_bswap64(e_entry);
+		e_entry = __builtin_bswap32(e_entry);
 
 	printf("  Entry point address:               0x");
 	switch (e_ident[EI_CLASS])
