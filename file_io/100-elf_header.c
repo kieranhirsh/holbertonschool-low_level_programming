@@ -16,29 +16,25 @@ void check_elf(unsigned char *e_ident)
 {
 	if (e_ident[EI_MAG0] != 127)
 	{
-		printf("0 = %i\n", e_ident[EI_MAG0]);
-		printf("Not an ELF file\n");
+		dprintf(STDERR_FILENO,"Not an ELF file\n");
 		exit(98);
 	}
 
 	if (e_ident[EI_MAG1] != 'E')
 	{
-		printf("1 = %i\n", e_ident[EI_MAG1]);
-		printf("Not an ELF file\n");
+		dprintf(STDERR_FILENO,"Not an ELF file\n");
 		exit(98);
 	}
 
 	if (e_ident[EI_MAG2] != 'L')
 	{
-		printf("2 = %i\n", e_ident[EI_MAG2]);
-		printf("Not an ELF file\n");
+		dprintf(STDERR_FILENO,"Not an ELF file\n");
 		exit(98);
 	}
 
 	if (e_ident[EI_MAG3] != 'F')
 	{
-		printf("3 = %i\n", e_ident[EI_MAG3]);
-		printf("Not an ELF file\n");
+		dprintf(STDERR_FILENO,"Not an ELF file\n");
 		exit(98);
 	}
 
@@ -261,7 +257,7 @@ int main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		printf("usage: %s filename\n", argv[0]);
+		dprintf(STDERR_FILENO,"usage: %s filename\n", argv[0]);
 		return (98);
 	}
 
@@ -270,13 +266,13 @@ int main(int argc, char **argv)
 	header = malloc(sizeof(Elf64_Ehdr));
 	if (header == NULL)
 	{
-		printf("couldn't malloc\n");
+		dprintf(STDERR_FILENO,"couldn't malloc\n");
 		return (98);
 	}
 
 	if (read(fd, header, sizeof(Elf64_Ehdr)) == -1)
 	{
-		printf("couldn't read %s\n", argv[1]);
+		dprintf(STDERR_FILENO,"couldn't read %s\n", argv[1]);
 		return (98);
 	}
 
