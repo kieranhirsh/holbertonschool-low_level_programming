@@ -183,6 +183,7 @@ void print_abiversion(unsigned char *e_ident)
 /**
  * print_type - prints the type
  * @e_type: the type
+ * @e_ident: the endianness
  *
  */
 void print_type(unsigned int e_type, unsigned char *e_ident)
@@ -216,7 +217,7 @@ void print_type(unsigned int e_type, unsigned char *e_ident)
 /**
  * print_entry - prints the entry
  * @e_entry: the entry
- * @e_ident: the class
+ * @e_ident: the endianness
  *
  */
 void print_entry(unsigned long int e_entry, unsigned char *e_ident)
