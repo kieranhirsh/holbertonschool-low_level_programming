@@ -76,7 +76,7 @@ void print_class(unsigned char *e_ident)
 		printf("ELF64\n");
 		break;
 	default:
-		printf("<unknown: %x>\n", e_ident[EI_CLASS]);
+		printf("\n");
 	}
 }
 
@@ -100,7 +100,7 @@ void print_data(unsigned char *e_ident)
 		printf("2's complement, big endian\n");
 		break;
 	default:
-		printf("<unknown: %x>\n", e_ident[EI_DATA]);
+		printf("\n");
 	}
 }
 
@@ -121,7 +121,7 @@ void print_version(unsigned char *e_ident)
 		printf("(current)\n");
 		break;
 	default:
-		printf("<unknown: %x>\n", e_ident[EI_VERSION]);
+		printf("\n");
 	}
 }
 
@@ -166,7 +166,7 @@ void print_osabi(unsigned char *e_ident)
 		printf("Standalone App\n");
 		break;
 	default:
-		printf("<unknown: %x>\n", e_ident[EI_OSABI]);
+		printf("\n");
 	}
 }
 
@@ -209,7 +209,7 @@ void print_type(unsigned int e_type, unsigned char *e_ident)
 		printf("CORE (Core file)\n");
 		break;
 	default:
-		printf("<unknown: %x>\n", e_type);
+		printf("\n");
 	}
 }
 
@@ -237,7 +237,7 @@ void print_entry(long unsigned int e_entry, unsigned char *e_ident)
 		printf("%lx\n", e_entry);
 		break;
 	default:
-		printf("<unknown: %lx>\n", e_entry);
+		printf("\n");
 	}
 }
 
