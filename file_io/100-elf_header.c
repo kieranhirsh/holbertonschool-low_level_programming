@@ -111,14 +111,14 @@ void print_data(unsigned char *e_ident)
  */
 void print_version(unsigned char *e_ident)
 {
-	printf("  Version:                           %i ", e_ident[EI_VERSION]);
+	printf("  Version:                           %i", e_ident[EI_VERSION]);
 	switch (e_ident[EI_VERSION])
 	{
 	case (EV_NONE):
 		printf("\n");
 		break;
 	case (EV_CURRENT):
-		printf("(current)\n");
+		printf(" (current)\n");
 		break;
 	default:
 		printf("\n");
