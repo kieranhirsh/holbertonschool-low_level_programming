@@ -88,7 +88,7 @@ void multiply(char *num1, char num2, int power, char *prod)
 /**
  * main - check the code
  * @argc: the number of command line arguments passed to the program
- * @argv: the command line arguments passed to the program (unused)
+ * @argv: the command line arguments passed to the program
  *
  * Return: Always 0.
  */
@@ -135,6 +135,12 @@ int main(int argc, char **argv)
 		_putchar(prod[ii]);
 	_putchar('\n');
 
+	ii = (len[0] + len[1]) + 1;
+	while (ii >= 0)
+	{
+		free(&prod[ii]);
+		ii -= 1;
+	}
 	free(prod);
 
 	return (0);
